@@ -1,21 +1,26 @@
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
+#define ll long long
 using namespace std;
-
+void solve(){
+    ll h, m, s, geral;
+    cin>>h>>m>>s;
+    geral = (h*3600LL)+(m*60)+s;
+    ll t;
+    cin>>t;
+    geral +=t;
+    geral%=86400;
+    h = geral/3600;
+    m = (geral%3600)/60;
+    s = geral%60;
+    cout<<h<<'\n'<<m<<'\n'<<s<<'\n';
+}
 int main(){
-    int h, m, s;
-    cin >> h >> m >> s;
-    int t;
-    cin >> t;
-    s += t;
-    while(s >= 60){
-        m++;
-        s -= 60;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t = 1;
+    while(t--){
+        solve();
     }
-    while(m >= 60){
-        h++;
-        m -= 60;
-    }
-    h %= 24;
-    cout << h << '\n' << m << '\n' << s << '\n';
+
+    return 0;
 }
